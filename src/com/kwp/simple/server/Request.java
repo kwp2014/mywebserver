@@ -1,4 +1,4 @@
-package com.kwp.socket;
+package com.kwp.simple.server;
 
 import java.io.IOException;
 import java.io.InputStream;

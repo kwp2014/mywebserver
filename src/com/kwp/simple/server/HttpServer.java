@@ -1,4 +1,4 @@
-package com.kwp.socket;
+package com.kwp.simple.server;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,13 +7,12 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class HttpServer {
 	public static final String WEB_ROOT = 
 			System.getProperty("user.dir") + File.separator + "webroot";
 	
-	private static final String SHUTDOWN_COMMEND = "/SHUTDOWN";
+	private static final String SHUTDOWN_COMMAND = "/SHUTDOWN";
 	
 	private boolean shutdown = false;
 	
@@ -22,6 +21,7 @@ public class HttpServer {
 		server.await();
 	}
 	
+	// uri: http://hostname:port/staticResource
 	public void await(){
 		ServerSocket serverSocket = null;
 		int port = 8081;
@@ -52,7 +52,7 @@ public class HttpServer {
 				// close the socket
 				socket.close();
 				
-				shutdown = request.getUri().equals(SHUTDOWN_COMMEND);
+				shutdown = request.getUri().equals(SHUTDOWN_COMMAND);
 			}catch(Exception e){
 				e.printStackTrace();
 				continue;

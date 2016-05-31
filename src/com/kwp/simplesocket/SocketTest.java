@@ -1,5 +1,7 @@
-package com.kwp.socket;
-
+package com.kwp.simplesocket;
+/**
+ * 模拟与本地HTTP服务器进行通信
+ */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,7 +22,7 @@ public class SocketTest {
 		// 3. 从网络中读数据
 		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		
-		// send an HTTP request to the web server 
+		// 4. 客户端按照HTTP协议发送请求到服务器
 		out.println("GET /index.jsp HTTP/1.1");
 		out.println("Host: localhost:8081");
 		out.println("Connection: Close");

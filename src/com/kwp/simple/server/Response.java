@@ -1,4 +1,4 @@
-package com.kwp.socket;
+package com.kwp.simple.server;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -39,13 +39,12 @@ public class Response {
 			}else{
 				String errorMessage = "Http/1.1 404 File Not Found\r\n" + 
 						"Content-Type: text/html\r\n" +
-						"Content-Type: text/html\r\n" +
-						"Content-Type: text/html\r\n";
+						"Content-Length: 23\r\n" +
+						"\r\n" +
+						"<h1> File Not Found</h1>";
 				output.write(errorMessage.getBytes());
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			System.out.println(e.toString());
 		}finally{
 			if(fis != null){
