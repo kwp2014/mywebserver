@@ -13,34 +13,29 @@ import javax.servlet.ServletResponse;
 
 
 
-public class ServletProcessor1 {
+class ServletProcessor1 {
 
 	public void process(Request request, Response response) {
 		String uri = request.getUri();
 		String servletName = uri.substring(uri.lastIndexOf("/")+1);
-		URLClassLoader loader = null;
 		
-		URL[] urls = new URL[1];
-		URLStreamHandler streamHander = null;
-		File classPath = new File(Constants.WEB_ROOT);
-		String repository;
+		URLClassLoader loader = null;	
+		
 		try {
-			repository = (new URL("file",null,classPath.getCanonicalPath() + File.separator)).toString();
-			urls[0] = new URL(null,repository,streamHander);
-			loader = new URLClassLoader(urls);
+			URL[] urls = new URL[] { new URL("file:/"
+					+ System.getProperty("user.dir") + "/") };
+			loader = new URLClassLoader(urls);  
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-
-		
+				
 		Class myClass = null;
 		try {
-			myClass = loader.loadClass(servletName);
+			String packagePath = "com.kwp.servlets.";
+			myClass = loader.loadClass(packagePath + servletName);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.toString());
 		}
 		Servlet servlet = null;
 		try {

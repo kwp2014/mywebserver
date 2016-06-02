@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class Response {
+class Response {
 
 	private static final int BUFFER_SIZE = 1024;
 	Request request;

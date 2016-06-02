@@ -3,7 +3,7 @@ package com.kwp.simple.servlet.container;
 import java.io.IOException;
 
 
-public class StaticResourceProcessor {
+class StaticResourceProcessor {
 
 	public void process(Request request, Response response) {
 		try{

@@ -12,7 +12,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletInputStream;
 import javax.servlet.ServletRequest;
 
-public class Request implements ServletRequest{
+class Request implements ServletRequest{
 
 	private InputStream input;
 	private String uri;
@@ -31,7 +31,7 @@ public class Request implements ServletRequest{
 		int i;
 		byte[] buffer = new byte[2048];
 		try {
-			i = input.read(buffer);
+			i = input.read(buffer);  // ASC码对应二进制值
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

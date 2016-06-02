@@ -8,7 +8,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class HttpServer {
+class HttpServer {
 	public static final String WEB_ROOT = 
 			System.getProperty("user.dir") + File.separator + "webroot";
 	

@@ -3,7 +3,7 @@ package com.kwp.simple.server;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Request {
+class Request {
 
 	private InputStream input;
 	private String uri;

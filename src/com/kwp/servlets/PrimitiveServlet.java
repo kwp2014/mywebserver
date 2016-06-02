@@ -1,4 +1,4 @@
-package com.kwp.simple.servlet.container;
+package com.kwp.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
